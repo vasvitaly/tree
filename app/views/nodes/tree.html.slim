@@ -1,0 +1,26 @@
+- main_title 'Tree Application'
+
+div ng-app="treeApp"
+  div ng-controller="TreeCtrl"
+  
+    script type="text/ng-template" id="node.html"
+      span ng-include="formTemplate(node)"
+      button.btn.btn-mini.btn-primary ng-click="add(node)" +
+      button.btn.btn-mini.btn-danger ng-click="removeNode(node)" ng-show="removable(node)" -
+      ul
+        li id="{{node.id}}" ng-repeat="node in node[childs]" ng-include="nodeTpl"
+        
+    script type="text/ng-template" id="node_form.html"
+      button.btn.btn-mini.btn-warning[ ng-click="cancelEdit(node)"] 
+        i.icon-ban-circle.icon-white &nbsp;  
+      form.inline ng-submit="update(node)"
+        input type="text" ng-model="node.name"
+
+    script type="text/ng-template" id="node_show.html"
+      .move-handle
+      a href="" ng-click="edit(node)" ng-class="(node[childs] > 0) && 'bold' || 'ital'" {{node.name}}
+
+    #tree.tree ng-model="nodes" ng-childs="nodes" add-node="addNode(node)" is-removable="canRemove(node)" delete-node="deleteNode(node, branch)" update-node="update(node)" move-node="moveNodeTo(node_id,left_id,right_id)" node-form="node_form.html" node-text="node_show.html" node-tpl="node.html"
+
+
+

@@ -1,0 +1,14 @@
+doctype 5
+html
+  head
+    title | Example Tree application
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application'
+    = yield :specific_stylesheet
+    = javascript_include_tag 'application'
+    = yield :page_specific_javascript
+
+  body
+    .container
+      h2 = yield :main_title
+      = yield

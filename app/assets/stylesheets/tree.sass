@@ -1,0 +1,56 @@
+.bold 
+  font-weight: 800
+.ital 
+  font-style: italic
+
+.odd
+  background-color: #ccc
+.even
+  background-color: #fff
+
+.tree
+  ul
+    margin: 10px 10px 10px 30px
+    list-style: none
+    border-left: 1px dotted #444
+    li
+      position: relative
+      color: #444
+      padding: 3px 10px 3px 0
+      list-style: none
+      span
+      &:before
+        content: ''
+        display: inline-block
+        width: 10px
+        height: 10px
+        vertical-align: top
+        border-bottom: 1px dotted #444
+      a 
+        color: #444
+        font-size: 14px
+        text-decoration: none
+      .btn
+        margin-left: 5px
+
+
+form.inline
+  display: inline-block
+  margin: 3px 5px
+  input
+    display: inline-block
+    margin: 3px 5px
+
+ul
+  li
+    position: relative
+    display: block
+
+.move-handle 
+  display: inline-block
+  width: 14px
+  height: 14px
+  background: image-url('move-handler.png') no-repeat
+  margin: 0 5px
+  vertical-align: middle
+  cursor: move
